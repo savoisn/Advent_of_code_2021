@@ -1,21 +1,5 @@
 defmodule AvdentOfCode01 do
-  @input "../input.txt"
-  @moduledoc """
-  Documentation for `AvdentOfCode01`.
-  """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-  iex> AvdentOfCode01.hello()
-  :world
-
-  """
-  def hello do
-    :world
-  end
+  @input "../01.txt"
 
   def read_file do
     File.stream!(@input)
@@ -38,7 +22,7 @@ defmodule AvdentOfCode01 do
     %{prevprev: prev, prev: new, value: value ++ [prevprev + prev + new]}
   end
 
-  def compute_window_value(new, %{prevprev: prevprev, prev: prev, value: value}) do
+  def compute_window_value(new, %{prevprev: _, prev: prev, value: value}) do
     %{prevprev: prev, prev: new, value: value}
   end
 
