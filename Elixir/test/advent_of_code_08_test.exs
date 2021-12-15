@@ -27,7 +27,7 @@ defmodule AdventOfCode08Test do
       @entries
       |> String.split("\n", trim: true)
 
-    assert AdventOfCode08.process_part2(entries) == 168
+    assert AdventOfCode08.process_part2(entries) == 61229
   end
 
   test "day 08 part1" do
@@ -36,7 +36,22 @@ defmodule AdventOfCode08Test do
     IO.puts("08-part1 " <> Integer.to_string(res))
   end
 
-  @tag :skip
+  @tag mustexec: true
+  test "test get_mapping second line" do
+    entries =
+      @entries
+      |> String.split("\n", trim: true)
+
+    rough_clues =
+      entries
+      |> Enum.map(&String.split(&1, " |", trim: true))
+      |> Enum.map(fn [head | _] -> head end)
+      |> Enum.map(&String.split(&1, " ", trim: true))
+
+    Enum.at(rough_clues, 1)
+  end
+
+  # @tag :skip
   test "day 08 part2" do
     entries = AdventOfCode08.read_file()
     res = AdventOfCode08.process_part2(entries)
