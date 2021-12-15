@@ -26,7 +26,6 @@ defmodule AdventOfCode06Test do
     assert(res == 5934)
   end
 
-  @tag timeout: :infinity
   test "day 06 part1" do
     entries = AdventOfCode06.read_file()
     res = AdventOfCode06.process_part1(entries, @nb_days_part1)
